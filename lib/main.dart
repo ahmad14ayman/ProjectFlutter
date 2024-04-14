@@ -23,3 +23,7 @@ class myApp extends StatelessWidget {
     );
   }
 }
+
+void test(){
+  print("hello");
+}
