@@ -2,33 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/homePage.dart';
 import 'package:flutter_application_1/validation.dart';
-import 'package:flutter_application_1/firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
-
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  // Future log_in() async {
-  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //       email: emailController.text.trim(),
-  //       password: passwordController.text.trim());
-  // }
-
-  // @override
-  // void dispose() {
-  //   // TODO: implement dispose
-  //   emailController.dispose();
-  //   passwordController.dispose();
-  //   super.dispose();
-  // }
-
+class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,27 +135,19 @@ class _LoginState extends State<Login> {
             //Login
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 16),
-              child: GestureDetector(
-                // onTap: log_in,
-                child: Container(
-                  width: 250,
-                  height: 40,
-                  child: FilledButton(
-                    onPressed: () async {
-                      Navigator.of(context).pushNamed("homePage");
-                      // // formKey.currentState;
-                      // UserCredential userCredential =
-                      //     await FirebaseAuth.instance.signInAnonymously();
-                    },
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(
-                        Color(0xffC35A56),
-                      ),
+              child: Container(
+                width: 250,
+                height: 40,
+                child: FilledButton(
+                  onPressed: () {},
+                  style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(
+                      Color(0xffC35A56),
                     ),
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                  ),
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

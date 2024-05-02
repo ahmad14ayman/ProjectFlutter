@@ -11,9 +11,7 @@ import 'package:flutter_application_1/sign_up.dart';
 import 'package:flutter_application_1/otp.dart';
 import 'package:flutter_application_1/verfication.dart';
 
-Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+void main() {
   runApp(myApp());
 }
 
@@ -34,16 +32,15 @@ class myApp extends StatelessWidget {
         }
       },
       routes: {
-        // '/': (context) => const Auth(),
-        "homePage": (context) => const homePage(),
-        "SignUp": (contect) => SignUp(),
-        "Login": (contect) => const Login(),
-        "Forget": (contect) => Forget(),
-        // "Mobile": (context) => Mobile(),
-        // "OTP": (context) => const OTP(),
-        "verfication": (context) => verfication(
-            first: true, last: true, controller: TextEditingController()),
+        "SignUp":(contect)=>SignUp(),
+        "Login":(contect)=>Login(),
+        "Forget":(contect)=>const Forget(),
       },
     );
   }
 }
+
+void test(){
+  print("We got into bugs related to firebase so we commented all related to firebase .. ");
+}
+
