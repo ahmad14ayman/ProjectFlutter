@@ -1,7 +1,34 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/homePage.dart';
 import 'package:flutter_application_1/validation.dart';
+import 'package:flutter_application_1/firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  Future log_in() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim());
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +73,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16),
               child: TextFormField(
-                controller: TextEditingController(),
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: MYValidation().emailValidate,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -78,7 +105,7 @@ class Login extends StatelessWidget {
                   top: 0, left: 16, right: 16, bottom: 16),
               child: TextFormField(
                 obscureText: true,
-                controller: TextEditingController(),
+                controller: passwordController,
                 keyboardType: TextInputType.name,
                 validator: MYValidation().passValidate,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -133,19 +160,27 @@ class Login extends StatelessWidget {
             //Login
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 16),
-              child: Container(
-                width: 250,
-                height: 40,
-                child: FilledButton(
-                  onPressed: () {},
-                  style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(
-                      Color(0xffC35A56),
+              child: GestureDetector(
+                onTap: log_in,
+                child: Container(
+                  width: 250,
+                  height: 40,
+                  child: FilledButton(
+                    onPressed: () async {
+                      Navigator.of(context).pushNamed("homePage");
+                      // // formKey.currentState;
+                      // UserCredential userCredential =
+                      //     await FirebaseAuth.instance.signInAnonymously();
+                    },
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(
+                        Color(0xffC35A56),
+                      ),
                     ),
-                  ),
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),

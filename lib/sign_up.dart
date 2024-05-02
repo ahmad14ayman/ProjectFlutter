@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/validation.dart';
-
+ // Ahmed Atef New Update
+  final formKey = GlobalKey<FormState>();
 class SignUp extends StatelessWidget {
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,10 +161,13 @@ class SignUp extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 16),
               child: Container(
+                key: formKey,
                 width: 250,
                 height: 40,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("homePage");
+                  },
                   style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
                       Color(0xffC35A56),
