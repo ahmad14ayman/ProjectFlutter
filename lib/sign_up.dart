@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/validation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
  // Ahmed Atef New Update
   final formKey = GlobalKey<FormState>();
 class SignUp extends StatelessWidget {
@@ -216,3 +217,17 @@ InputDecoration decoration = InputDecoration(
     errorBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.red, width: 2),
         borderRadius: BorderRadius.circular(30)));
+
+
+Future<void> signUpWithEmailPassword(String email, String password) async {
+  try {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    // User successfully signed up
+  } catch (e) {
+    // Error occurred during sign-up
+    print('Error: $e');
+  }
+}

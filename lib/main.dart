@@ -12,8 +12,8 @@ import 'package:flutter_application_1/otp.dart';
 import 'package:flutter_application_1/verfication.dart';
 
 void main()  {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(myApp());
 }
 
@@ -48,9 +48,6 @@ class myApp extends StatelessWidget {
 }
 
 void test(){
-  print("hello");
+  print("We got into bugs related to firebase so we commented all related to firebase .. ");
 }
 
-void tes2(){
-    print("hello");
-}
