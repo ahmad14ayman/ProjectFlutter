@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/otp.dart';
 import 'package:flutter_application_1/validation.dart';
 
 class Forget extends StatelessWidget {
-  const Forget({super.key});
-
+  TextEditingController phonec = TextEditingController();
+  Forget({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +64,7 @@ class Forget extends StatelessWidget {
                 left: 20,
               ),
               child: TextFormField(
-                controller: TextEditingController(),
+                controller: phonec,
                 validator: MYValidation().phoneValidate,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 keyboardType: TextInputType.phone,
@@ -81,7 +82,10 @@ class Forget extends StatelessWidget {
                 width: 250,
                 height: 40,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, OTP.routeName,
+                        arguments: phonec.text);
+                  },
                   style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
                       Color(0xffC35A56),
@@ -113,6 +117,11 @@ class Forget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    phonec.dispose();
   }
 }
 

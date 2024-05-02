@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "163456663665",
+    "project_id": "myres-7ccc8",
+    "storage_bucket": "myres-7ccc8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163456663665:android:99f9c980997c15153f5bd0",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATkjiEQzzuIF1jktlu3lRJN2Q8PLreXqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

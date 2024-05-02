@@ -1,7 +1,44 @@
+import 'dart:js';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/validation.dart';
 
+// Ahmed Atef New Update
+final formKey = GlobalKey<FormState>();
+
 class SignUp extends StatelessWidget {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final ConfirmPasswordController = TextEditingController();
+  // Future sign_up() async {
+  //   if (ConfirmPassword()) {
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //         email: emailController.text.trim(),
+  //         password: passwordController.text.trim());
+  //     Navigator.of(context as BuildContext).pushNamed('/');
+  //   }
+  //   ;
+  // }
+
+  // bool ConfirmPassword() {
+  //   if (passwordController.text.trim() ==
+  //       ConfirmPasswordController.text.trim()) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  // @override
+  // void dispose() {
+  //   // TODO: implement dispose
+  //   emailController.dispose();
+  //   passwordController.dispose();
+  //   ConfirmPasswordController.dispose();
+  //   // super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,6 +135,24 @@ class SignUp extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 15,
+                right: 20,
+                left: 20,
+              ),
+              child: TextFormField(
+                obscureText: true,
+                controller: TextEditingController(),
+                keyboardType: TextInputType.name,
+                validator: MYValidation().passValidate,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: decoration.copyWith(
+                  hintText: "Confirm Password",
+                  prefixIcon: Icon(Icons.lock),
+                ),
+              ),
+            ),
 
             // Phone
             Padding(
@@ -158,15 +213,20 @@ class SignUp extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 16),
               child: Container(
+                key: formKey,
                 width: 250,
                 height: 40,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("homePage");
+                  },
                   style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
                       Color(0xffC35A56),
                     ),
                   ),
+
+                  // onTap: sign_up,
                   child: const Text(
                     "Sign Up",
                     style: TextStyle(fontWeight: FontWeight.bold),
