@@ -34,7 +34,7 @@ class myApp extends StatelessWidget {
       routes: {
         "SignUp":(contect)=>SignUp(),
         "Login":(contect)=>Login(),
-        "Forget":(contect)=>const Forget(),
+        "Forget":(contect)=> Forget(),
       },
     );
   }

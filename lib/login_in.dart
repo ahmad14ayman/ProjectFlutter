@@ -48,7 +48,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16),
               child: TextFormField(
-                controller: emailController,
+                // controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: MYValidation().emailValidate,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -80,7 +80,7 @@ class Login extends StatelessWidget {
                   top: 0, left: 16, right: 16, bottom: 16),
               child: TextFormField(
                 obscureText: true,
-                controller: passwordController,
+                // controller: passwordController,
                 keyboardType: TextInputType.name,
                 validator: MYValidation().passValidate,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
