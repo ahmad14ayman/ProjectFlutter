@@ -50,3 +50,7 @@ class myApp extends StatelessWidget {
 void test(){
   print("hello");
 }
+
+void tes2(){
+    print("hello");
+}
